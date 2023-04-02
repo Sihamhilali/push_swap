@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 16:05:20 by selhilal          #+#    #+#             */
-/*   Updated: 2023/03/23 17:05:55 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/02 17:33:40 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 size_t		ft_strlen(const char *s);
 int			ft_atoi(const char *str);
 int			ft_isalnum(int f);
-int			ft_isdigit(char n);
+int			ft_isdigit(char *str);
 int			ft_isprint(int c);
 int			ft_isalpha(int c);
 size_t		ft_strlcat(char *dst, const char *src, size_t dstsize);
