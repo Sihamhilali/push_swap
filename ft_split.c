@@ -6,11 +6,11 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 20:52:18 by selhilal          #+#    #+#             */
-/*   Updated: 2022/10/27 23:59:20 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/04 14:58:18 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include"Push_swap.h"
 
 int	ft_count(char const *s, char c)
 {
