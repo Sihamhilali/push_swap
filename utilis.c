@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 21:46:02 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/09 17:27:44 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/13 20:39:29 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,16 +70,18 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 t_linked	*add(char **split)
 {
-	int			i;
 	t_linked	*stacka;
+	int			i;
 
 	stacka = NULL;
 	i = 0;
 	while (split[i])
 	{
-		ft_lstadd_back(&stacka, ft_lstnew(ft_atoi(split[i]), i));
+		ft_lstadd_back(&stacka, ft_lstnew(ft_atoi(split[i]), 0));
 		i++;
 	}
+	addindex(&stacka);
+	position(stacka);
 	return (stacka);
 }
 

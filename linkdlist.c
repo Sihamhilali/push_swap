@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 14:33:48 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/09 00:03:38 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/13 20:12:13 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_linked	*ft_lstnew(int content, int i)
 		return (NULL);
 	ptr->content = content;
 	ptr->next = NULL;
-	ptr->index = i;
+	ptr->position = i;
 	return (ptr);
 }
 

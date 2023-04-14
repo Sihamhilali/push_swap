@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 20:57:43 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/12 22:06:02 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/13 21:45:54 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,27 @@ char	*ft_strchr(const char *str, int c)
 	if (str[i] == (char)c)
 		return ((char *)str + i);
 	return (NULL);
+}
+
+void	ft_lstdelone(t_linked	*lst)
+{
+	if (!lst)
+		return ;
+	free(lst);
+}
+
+void	ft_lstclear(t_linked **lst)
+{
+	t_linked	*tmp;
+
+	if (!lst)
+		return ;
+	tmp = *lst;
+	while (tmp)
+	{
+		tmp = (*lst)-> next;
+		ft_lstdelone(*lst);
+		*lst = tmp;
+	}
+	free(tmp);
 }
