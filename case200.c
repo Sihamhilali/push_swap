@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 00:32:37 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/17 15:35:09 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/17 17:26:22 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	instriction(t_linked **stackb, int position, int size)
 	int	bottom;
 
 	top = to_index(*stackb, position);
-	bottom = (size + 1) - top;
+	bottom = size - top;
 	if (top >= size / 2)
 		return (bottom);
 	else
@@ -28,10 +28,19 @@ int	instriction(t_linked **stackb, int position, int size)
 void	algo_position200(t_linked **stacka, t_linked **stackb, int size)
 {
 	(void)stacka;
+	// t_linked *tmp;
+
+	// tmp = *stackb;
 	size = ft_lstsize(*stackb);
+	// while (tmp)
+	// {
+	// 	printf("value == %d|| pos == %d\n", tmp->content, tmp->position);
+	// 	tmp = tmp->next;
+	// }
+	// printf("%d     %d", instriction(stackb, size - 1, size), instriction(stackb, size - 2, size));
 	while (*stackb)
 	{
-		if (size != 0)
+		if (size != 1)
 		{
 			if (instriction(stackb, size - 1, size) < instriction(stackb, size - 2, size))
 			{
@@ -59,21 +68,21 @@ void	for_algo200(t_linked **stacka, t_linked **stackb, int table, int chunk)
 	count = 0;
 	while (*stacka)
 	{
-			if ((*stacka)->position >= chunk)
-				revers_a(stacka);
-			else
+		if ((*stacka)->position > chunk)
+			revers_a(stacka);
+		else
+		{
+			push_tob(stacka, stackb);
+				count++;
+			if ((*stackb)->position > chunk - (table / 2))
 			{
-				push_tob(stacka, stackb);
-					count++;
-				if ((*stackb)->position > chunk - (table / 2))
-				{
-					if (*stacka && count != chunk && (*stacka)->position >= chunk)
-						rr_ab(stacka, stackb);
-					else
-						revers_b(stackb);
-				}
+				if (*stacka && count != chunk && (*stacka)->position >= chunk)
+					rr_ab(stacka, stackb);
+				else
+					revers_b(stackb);
 			}
-		if(ft_lstsize(*stackb) == chunk)
+		}
+		if (ft_lstsize(*stackb) == chunk)
 			chunk += table;
 	}
 }

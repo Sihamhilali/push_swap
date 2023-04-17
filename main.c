@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:42:16 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/17 13:35:31 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/17 16:33:46 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	sorted(t_linked *stacka)
 	}
 }
 
-
 int	main(int argc,	char **argv)
 {
 	int			i;
@@ -75,11 +74,6 @@ int	main(int argc,	char **argv)
 		t_free(k);
 		sorted(stacka);
 		for_index(&stacka, &stackb);
-		// while (stacka)
-		// {
-		// 	printf("value == %d\n", (stacka)->content);
-		// 	stacka = stacka->next;
-		// }
 		ft_lstclear(&stacka);
 	}
 	return (0);

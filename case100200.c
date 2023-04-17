@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 12:03:57 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/17 15:27:23 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/17 17:17:24 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,13 @@ int	to_index(t_linked *stackb, int position)
 
 void	find_retation(t_linked **stacka, t_linked **stackb, int size, int index)
 {
-	if (to_index(*stackb, index) < size / 2)
+	if (to_index(*stackb, index) <= size / 2)
 	{
 		while ((*stackb)->position != index)
+		{
+			//printf("%d\n",index);
 			revers_b(stackb);
+		}
 	}
 	else
 	{
