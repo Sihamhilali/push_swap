@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 22:01:37 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/13 21:56:47 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/17 15:24:25 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,14 @@ void	r_revers_b(t_linked **stackb)
 	stacktmp->next = *stackb;
 	*stackb = stacktmp;
 	addindex(stackb);
+		// t_linked	*first;
+		// first = *stackb;
+		// while (first != NULL)
+		// {
+		// 	printf("g\n");
+		// 	printf("%d\n", first->content);
+		// 	first = first->next;
+		// }
 	write(1, "rrb\n", 4);
 }
 

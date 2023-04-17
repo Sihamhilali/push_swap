@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 00:32:37 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/17 01:30:08 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/17 15:35:09 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	instriction(t_linked **stackb, int position, int size)
 {
 	int	top;
 	int	bottom;
+
 	top = to_index(*stackb, position);
 	bottom = (size + 1) - top;
 	if (top >= size / 2)
@@ -26,29 +27,29 @@ int	instriction(t_linked **stackb, int position, int size)
 
 void	algo_position200(t_linked **stacka, t_linked **stackb, int size)
 {
-	
-	size -= 1;
 	(void)stacka;
+	size = ft_lstsize(*stackb);
 	while (*stackb)
 	{
-		if (ft_lstsize(*stackb) !=  0)
-			if (instriction(stackb, size, size) < instriction(stackb, size - 1, size))
+		if (size != 0)
+		{
+			if (instriction(stackb, size - 1, size) < instriction(stackb, size - 2, size))
 			{
-				find_retation(stacka, stackb, size , size);
 				find_retation(stacka, stackb, size, size - 1);
-				swap_a(*stacka);
+				find_retation(stacka, stackb, size, size - 2);
+				size = ft_lstsize(*stackb) - 2;
 			}
 			else
 			{
+				find_retation(stacka, stackb, size, size - 2);
 				find_retation(stacka, stackb, size, size - 1);
-				find_retation(stacka, stackb, size, size);
+				swap_a(*stacka);
+				size = ft_lstsize(*stackb) - 2;
 			}
+		}
 		else
-			break;
-		
-		size = ft_lstsize(*stackb) - 2;
+			break ;
 	}
-
 }
 
 void	for_algo200(t_linked **stacka, t_linked **stackb, int table, int chunk)
@@ -56,7 +57,6 @@ void	for_algo200(t_linked **stacka, t_linked **stackb, int table, int chunk)
 	int	count;
 
 	count = 0;
-	//int size = ft_lstsize(*stacka);
 	while (*stacka)
 	{
 			if ((*stacka)->position >= chunk)
@@ -77,4 +77,3 @@ void	for_algo200(t_linked **stacka, t_linked **stackb, int table, int chunk)
 			chunk += table;
 	}
 }
-
