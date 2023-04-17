@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bigcase.c                                          :+:      :+:    :+:   */
+/*   position_index.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/13 16:42:33 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/13 20:13:39 by selhilal         ###   ########.fr       */
+/*   Created: 2023/04/15 17:56:33 by selhilal          #+#    #+#             */
+/*   Updated: 2023/04/15 17:56:38 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ void	position(t_linked *stacka)
 
 }
 
-void addindex(t_linked **stack)
+void	addindex(t_linked **stack)
 {
-	int i;
-	t_linked *tmp;
+	int			i;
+	t_linked	*tmp;
 
 	tmp = *stack;
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 20:57:43 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/13 21:45:54 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/15 17:48:22 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,6 @@ int	ft_isdigit(char *str)
 	if (count == ft_strlen(str))
 		return (1);
 	return (0);
-}
-
-char	*ft_strchr(const char *str, int c)
-{
-	int		i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == (char)c)
-			return ((char *)str + i);
-		i++;
-	}
-	if (str[i] == (char)c)
-		return ((char *)str + i);
-	return (NULL);
 }
 
 void	ft_lstdelone(t_linked	*lst)

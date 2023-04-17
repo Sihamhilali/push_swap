@@ -6,11 +6,37 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 14:17:13 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/12 22:04:17 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/15 17:44:49 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Push_swap.h"
+
+void	empty(char **str)
+{
+	int	i;
+	int	j;
+	int	count;
+
+	i = 0;
+	while (str[i])
+	{
+		count = 0;
+		j = 0;
+		while (str[i][j])
+		{
+			if (str[i][j] == ' ' || str[i][j] == '\t')
+				count++;
+			j++;
+		}
+		if (ft_strlen(str[i]) == count)
+		{
+			write(1, "error\n", 7);
+			exit(1);
+		}
+		i++;
+	}
+}
 
 void	change(char **split)
 {

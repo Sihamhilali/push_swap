@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cases.c                                            :+:      :+:    :+:   */
+/*   ab.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/14 00:19:53 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/14 00:26:43 by selhilal         ###   ########.fr       */
+/*   Created: 2023/04/15 17:38:49 by selhilal          #+#    #+#             */
+/*   Updated: 2023/04/15 18:16:35 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #include"Push_swap.h"
 
-void	case_algo(t_linked **stacka, int *table)
+void	swab_ba(t_linked *stacka, t_linked *stackb)
 {
-	if (ft_lstsize(stacka) <= 200)
-	{
-		*table = ft_lstsize(stacka) / 5;
-	}
-	else if (ft_lstsize(stacka) <= 500)
-	{
-		*table = ft_lstsize(stacka) / 9;
-	}
-	else if (ft_lstsize(stacka) > 500)
-	{
-		*table = ft_lstsize(stacka) / 15;
-	}
+	swap(stacka);
+	swap(stackb);
+	write(1, "ss\n", 3);
+}
+
+void	r_revers_ab(t_linked *stacka, t_linked *stackb)
+{
+	r_revers_(&stacka);
+	r_revers_(&stackb);
+	write(1, "rrr\n", 4);
+}
+
+void	rr_ab(t_linked **stacka, t_linked **stackb)
+{
+	revers_ab(stacka);
+	revers_ab(stackb);
+	write(1, "rr\n", 3);
 }
