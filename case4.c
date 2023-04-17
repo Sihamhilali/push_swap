@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 23:24:45 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/13 23:40:38 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/17 23:15:23 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	help(t_linked **stacka, t_linked **stackb)
 {
 	push_tob((stacka), stackb);
-	for_index((stacka), stackb);
+	case_three((stacka));
 	push_toa(stackb, ((stacka)));
 }
 
@@ -32,14 +32,13 @@ void	case_four(t_linked **stacka, t_linked	**stackb)
 	}
 	if (index == 2)
 	{
-		r_revers_a((stacka));
-		r_revers_a((stacka));
+		r_retate_a((stacka));
+		r_retate_a((stacka));
 		help(stacka, stackb);
 	}
-
 	if (index == 3)
 	{
-		r_revers_a((stacka));
+		r_retate_a((stacka));
 		help(stacka, stackb);
 	}
 }

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules_a.c                                          :+:      :+:    :+:   */
+/*   checkersteps.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/04 22:01:44 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/17 21:18:19 by selhilal         ###   ########.fr       */
+/*   Created: 2023/04/17 21:13:49 by selhilal          #+#    #+#             */
+/*   Updated: 2023/04/17 22:01:32 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Push_swap.h"
+#include "Push_swap.h"
 
-void	swap_a(t_linked *stacka)
+void	swap_a_check(t_linked *stacka)
 {
 	int	tmp;
 	int	pos;
@@ -26,10 +26,9 @@ void	swap_a(t_linked *stacka)
 	stacka->next->content = tmp;
 	stacka->next->position = pos;
 	addindex(&stacka);
-	write(1, "sa\n", 3);
 }
 
-void	retate_a(t_linked **stacka)
+void	retate_a_check(t_linked **stacka)
 {
 	int			tmp;
 	int			pos;
@@ -52,10 +51,9 @@ void	retate_a(t_linked **stacka)
 		tmplist_a->position = tmplist_a->next->position;
 		tmplist_a = tmplist_a->next;
 	}
-	write(1, "ra\n", 3);
 }
 
-void	push_tob(t_linked **stacka, t_linked **stackb)
+void	push_tob_check(t_linked **stacka, t_linked **stackb)
 {
 	int			i;
 	t_linked	*stacktmp;
@@ -72,10 +70,9 @@ void	push_tob(t_linked **stacka, t_linked **stackb)
 	free(stacktmp);
 	addindex(stackb);
 	addindex(stacka);
-	write(1, "pb\n", 3);
 }
 
-void	r_retate_a(t_linked **stacka)
+void	r_retate_a_check(t_linked **stacka)
 {
 	t_linked	*stacktmp;
 	t_linked	*tmp;
@@ -96,5 +93,10 @@ void	r_retate_a(t_linked **stacka)
 	stacktmp->next = *stacka;
 	*stacka = stacktmp;
 	addindex(stacka);
-	write(1, "rra\n", 4);
+}
+
+void	r_retate_ab_check(t_linked *stacka, t_linked *stackb)
+{
+	r_retate_(&stacka);
+	r_retate_(&stackb);
 }

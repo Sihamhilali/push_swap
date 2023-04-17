@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 14:17:13 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/15 17:44:49 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/17 23:16:04 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	empty(char **str)
 		}
 		if (ft_strlen(str[i]) == count)
 		{
-			write(1, "error\n", 7);
+			write(1, "Error\n", 6);
 			exit(1);
 		}
 		i++;
@@ -98,4 +98,3 @@ void	is_numbre(char **split)
 		}
 	}
 }
-

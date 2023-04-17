@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules_b.c                                          :+:      :+:    :+:   */
+/*   checkersteps2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/04 22:01:37 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/17 23:17:05 by selhilal         ###   ########.fr       */
+/*   Created: 2023/04/17 21:21:59 by selhilal          #+#    #+#             */
+/*   Updated: 2023/04/17 22:01:46 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Push_swap.h"
 
-void	swap_b(t_linked *stackb)
+void	swap_b_check(t_linked *stackb)
 {
 	int	tmp;
 	int	pos;
@@ -26,36 +26,34 @@ void	swap_b(t_linked *stackb)
 	stackb->next->content = tmp;
 	stackb->next->position = pos;
 	addindex(&stackb);
-	write(1, "sb\n", 3);
 }
 
-void	retate_b(t_linked **stackb)
+void	retate_b_check(t_linked **stackb)
 {
 	int			tmp;
 	int			pos;
-	t_linked	*tmplist_b;
+	t_linked	*tmplist_a;
 
-	tmplist_b = *stackb;
+	tmplist_a = *stackb;
 	if (!stackb)
 		exit(1);
-	tmp = tmplist_b->content;
-	pos = tmplist_b->position;
+	tmp = tmplist_a->content;
+	pos = tmplist_a->position;
 	while (tmp)
 	{
-		if (tmplist_b->next == NULL)
+		if (tmplist_a->next == NULL)
 		{
-			tmplist_b->content = tmp;
-			tmplist_b->position = pos;
+			tmplist_a->content = tmp;
+			tmplist_a->position = pos;
 			break ;
 		}
-		tmplist_b->content = tmplist_b->next->content;
-		tmplist_b->position = tmplist_b->next->position;
-		tmplist_b = tmplist_b->next;
+		tmplist_a->content = tmplist_a->next->content;
+		tmplist_a->position = tmplist_a->next->position;
+		tmplist_a = tmplist_a->next;
 	}
-	write(1, "rb\n", 3);
 }
 
-void	push_toa(t_linked **stackb, t_linked **stacka)
+void	push_toa_check(t_linked **stackb, t_linked **stacka)
 {
 	int			i;
 	t_linked	*stacktmp;
@@ -70,17 +68,18 @@ void	push_toa(t_linked **stackb, t_linked **stacka)
 	stacktmp = *stackb;
 	*stackb = (*stackb)->next;
 	free(stacktmp);
-	addindex(stackb);
 	addindex(stacka);
-	write(1, "pa\n", 3);
+	addindex(stackb);
 }
 
-void	r_retate_b(t_linked **stackb)
+void	r_retate_b_check(t_linked **stackb)
 {
 	t_linked	*stacktmp;
 	t_linked	*tmp;
 
 	tmp = *stackb;
+	if (!(*stackb))
+		return ;
 	stacktmp = ft_lstlast(*stackb);
 	while (tmp)
 	{
@@ -94,5 +93,10 @@ void	r_retate_b(t_linked **stackb)
 	stacktmp->next = *stackb;
 	*stackb = stacktmp;
 	addindex(stackb);
-	write(1, "rrb\n", 4);
+}
+
+void	rr_ab_check(t_linked **stacka, t_linked **stackb)
+{
+	retate_ab(stacka);
+	retate_ab(stackb);
 }

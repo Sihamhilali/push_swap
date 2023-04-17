@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 17:56:33 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/15 17:56:38 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/17 23:16:56 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	position(t_linked *stacka)
 		}
 		head = head->next;
 	}
-
 }
 
 void	addindex(t_linked **stack)

@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 23:24:41 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/15 18:00:36 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/17 23:15:10 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,27 @@
 
 void	case_three(t_linked **stacka)
 {
+	int	a;
+	int	b;
 	int	c;
 
+	a = (*stacka)->content;
+	b = (*stacka)->next->content;
 	c = (*stacka)->next->next->content;
-
-	if ((*stacka)->content < (*stacka)->next->content
-		&& (*stacka)->next->content < c)
-		return ;
-	else
+	if ((a > b) && (c > a) && (c > b))
+		swap_a((*stacka));
+	if ((a > b) && (a > c) && (b > c))
 	{
-		if (((*stacka)->content > (*stacka)->next->content)
-			&& (c > (*stacka)->content) && (c > (*stacka)->next->content))
-			swap_a((*stacka));
-		if (((*stacka)->content > (*stacka)->next->content)
-			&& ((*stacka)->content > c) && ((*stacka)->next->content > c))
-		{
-			swap_a((*stacka));
-			r_revers_a(stacka);
-		}
-		if (((*stacka)->content < (*stacka)->next->content)
-			&& (c > (*stacka)->content) && (c < (*stacka)->next->content))
-		{
-			swap_a((*stacka));
-			revers_a((stacka));
-		}
-		if (((*stacka)->content < (*stacka)->next->content)
-			&& (c < (*stacka)->content) && (c < (*stacka)->next->content))
-			r_revers_a(stacka);
-		if (((*stacka)->content > (*stacka)->next->content)
-			&& (c < (*stacka)->content) && (c > (*stacka)->next->content))
-			revers_a((stacka));
+		swap_a((*stacka));
+		r_retate_a(stacka);
 	}
+	if ((a < b) && (c > a) && (c < b))
+	{
+		swap_a((*stacka));
+		retate_a((stacka));
+	}
+	if ((a < b) && (c < a) && (c < b))
+		r_retate_a(stacka);
+	if ((a > b) && (c < a) && (c > b))
+		retate_a((stacka));
 }

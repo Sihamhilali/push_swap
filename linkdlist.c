@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 14:33:48 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/13 20:12:13 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/17 23:16:35 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ int	ft_lstsize(t_linked	*stacka)
 	}
 	return (i);
 }
-
 
 void	ft_lstadd_back(t_linked	**lst, t_linked	*new)
 {

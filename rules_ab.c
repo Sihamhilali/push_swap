@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:02:10 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/15 17:59:19 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/17 22:00:05 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	swap(t_linked *stack)
 	addindex(&stack);
 }
 
-void	r_revers_(t_linked **stack)
+void	r_retate_(t_linked **stack)
 {
 	int			tmp;
 	int			pos;
@@ -53,7 +53,7 @@ void	r_revers_(t_linked **stack)
 	}
 }
 
-void	revers_ab(t_linked **stack)
+void	retate_ab(t_linked **stack)
 {
 	int			tmp;
 	int			pos;

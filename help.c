@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 20:57:43 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/15 17:48:22 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/17 22:53:55 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,36 @@ void	ft_lstclear(t_linked **lst)
 		*lst = tmp;
 	}
 	free(tmp);
+}
+
+int	ins(t_linked **stackb, int position, int size)
+{
+	int	up;
+	int	down;
+
+	up = to_index(*stackb, position);
+	down = size - up;
+	if (up >= size / 2)
+		return (down);
+	else
+		return (up);
+}
+
+void	sorted(t_linked *stacka)
+{
+	t_linked	*test;
+	int			count;
+
+	count = 1;
+	test = stacka;
+	while (test->next)
+	{
+		if (test->content < test->next->content)
+			count++;
+		test = test->next;
+	}
+	if (count == ft_lstsize(stacka))
+	{
+		exit(0);
+	}
 }

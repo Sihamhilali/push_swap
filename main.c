@@ -6,12 +6,11 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:42:16 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/17 16:33:46 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/17 23:16:44 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Push_swap.h"
-
 
 void	for_index(t_linked **stacka, t_linked **stackb)
 {
@@ -27,23 +26,13 @@ void	for_index(t_linked **stacka, t_linked **stackb)
 		case_algo(stacka, stackb, 0);
 }
 
-void	sorted(t_linked *stacka)
+void	check(char **splite, t_linked **stacka)
 {
-	t_linked	*test;
-	int			count;
-
-	count = 1;
-	test = stacka;
-	while (test->next)
-	{
-		if (test->content < test->next->content)
-			count++;
-		test = test->next;
-	}
-	if (count == ft_lstsize(stacka))
-	{
-		exit(0);
-	}
+	change(splite);
+	is_numbre(splite);
+	max_min(splite);
+	*stacka = add(splite);
+	t_free(splite);
 }
 
 int	main(int argc,	char **argv)
@@ -57,24 +46,19 @@ int	main(int argc,	char **argv)
 	i = 1;
 	stacka = NULL;
 	stackb = NULL;
+	h = NULL;
 	if (argc > 1)
 	{
 		empty(argv);
 		while (argv[i])
-		{
 			h = ft_strjoin(h, argv[i++]);
-			h = ft_strjoin(h, " ");
-		}
 		k = ft_split(h, ' ');
 		free(h);
-		change(k);
-		is_numbre(k);
-		max_min(k);
-		stacka = add(k);
-		t_free(k);
+		check(k, &stacka);
 		sorted(stacka);
 		for_index(&stacka, &stackb);
 		ft_lstclear(&stacka);
+		ft_lstclear(&stackb);
 	}
 	return (0);
 }

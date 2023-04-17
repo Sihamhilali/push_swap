@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 20:03:51 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/13 23:31:44 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/17 23:04:31 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,3 @@ void	case_two(t_linked *stacka)
 	if (a > b)
 		swap_a(stacka);
 }
-

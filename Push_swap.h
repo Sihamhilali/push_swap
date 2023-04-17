@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 14:53:06 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/17 17:48:51 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/17 22:59:34 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
+# include "get_nextline/get_next_line.h"
 
 void		empty(char **str);
 char		*ft_strjoin(char *s1, char *s2);
@@ -46,17 +47,17 @@ void		ft_lstadd_back(t_linked	**lst, t_linked	*new);
 void		ft_lstadd_front(t_linked	**lst, t_linked	*new);
 void		swap_a(t_linked *stacka);
 void		swap_b(t_linked *stackb);
-void		revers_a(t_linked **stacka);
-void		revers_b(t_linked **stackb);
+void		retate_a(t_linked **stacka);
+void		retate_b(t_linked **stackb);
 void		push_tob(t_linked **stacka, t_linked **stackb);
 void		push_toa(t_linked **stackb, t_linked **stacka);
-void		r_revers_a(t_linked **stacka);
-void		r_revers_b(t_linked **stackb);
+void		r_retate_a(t_linked **stacka);
+void		r_retate_b(t_linked **stackb);
 void		swap(t_linked *stack);
-void		r_revers_(t_linked **stack);
-void		revers_ab(t_linked **stack);
+void		r_retate_(t_linked **stack);
+void		retate_ab(t_linked **stack);
 void		swab_ba(t_linked *stacka, t_linked *stackb);
-void		r_revers_ab(t_linked *stacka, t_linked *stackb);
+void		r_retate_ab(t_linked *stacka, t_linked *stackb);
 void		rr_ab(t_linked **stacka, t_linked **stackb);
 void		addindex(t_linked **stack);
 void		position(t_linked *stacka);
@@ -67,10 +68,19 @@ void		case_three(t_linked **stacka);
 void		case_four(t_linked **stacka, t_linked	**stackb);
 void		case_five(t_linked **stacka, t_linked	**stackb);
 void		case_algo(t_linked **stacka, t_linked **stackb, int table);
-void		algo_position200(t_linked **stacka, t_linked **stackb, int size);
-void		for_algo(t_linked **stacka, t_linked **stackb, int table, int chunk);
+int			ins(t_linked **stackb, int position, int size);
 int			to_index(t_linked *stackb, int position);
-void		find_retation(t_linked **stacka, t_linked **stackb, int size, int index);
-
+void		sorted(t_linked *stacka);
+void		swap_a_check(t_linked *stacka);
+void		swap_b_check(t_linked *stackb);
+void		retate_a_check(t_linked **stacka);
+void		retate_b_check(t_linked **stackb);
+void		push_tob_check(t_linked **stacka, t_linked **stackb);
+void		push_toa_check(t_linked **stackb, t_linked **stacka);
+void		r_retate_a_check(t_linked **stacka);
+void		r_retate_b_check(t_linked **stackb);
+void		rr_ab_check(t_linked **stacka, t_linked **stackb);
+void		r_retate_ab_check(t_linked *stacka, t_linked *stackb);
+void		swab_ba_check(t_linked *stacka, t_linked *stackb);
 
 #endif
