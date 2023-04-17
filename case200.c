@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 00:32:37 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/17 01:19:41 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/17 01:30:08 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	instriction(t_linked **stackb, int position, int size)
 	int	top;
 	int	bottom;
 	top = to_index(*stackb, position);
-	bottom = size - top;
+	bottom = (size + 1) - top;
 	if (top >= size / 2)
 		return (bottom);
 	else
@@ -48,6 +48,7 @@ void	algo_position200(t_linked **stacka, t_linked **stackb, int size)
 		
 		size = ft_lstsize(*stackb) - 2;
 	}
+
 }
 
 void	for_algo200(t_linked **stacka, t_linked **stackb, int table, int chunk)
@@ -76,3 +77,4 @@ void	for_algo200(t_linked **stacka, t_linked **stackb, int table, int chunk)
 			chunk += table;
 	}
 }
+

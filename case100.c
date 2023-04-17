@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 00:32:15 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/17 01:23:19 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/17 12:00:12 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	algo_position(t_linked **stacka, t_linked **stackb, int size)
 		find_retation(stacka, stackb, size, size - 1);
 		size--;
 	}
+
 }
 
 void	for_algo(t_linked **stacka, t_linked **stackb, int table, int chunk)
@@ -68,7 +69,7 @@ void	for_algo(t_linked **stacka, t_linked **stackb, int table, int chunk)
 				count++;
 			if ((*stackb)->position > chunk - (table / 2))
 			{
-				if ((*stacka)->position >= chunk)
+				if (*stacka && count != chunk && (*stacka)->position >= chunk)
 					rr_ab(stacka, stackb);
 				else
 					revers_b(stackb);
