@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 00:32:15 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/17 17:29:45 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/17 17:48:13 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,15 @@ void	case_algo(t_linked **stacka, t_linked **stackb, int table)
 	{
 		table = size / 5;
 		chunk = table;
-		 for_algo(stacka, stackb, table, chunk);
-		 algo_position(stacka, stackb, size);
+		for_algo(stacka, stackb, table, chunk);
+		algo_position(stacka, stackb, size);
 	}
 	else if (size >= 200)
 	{
 		table = size / 10;
 		chunk = table;
-		for_algo200(stacka, stackb, table, chunk);
+		for_algo(stacka, stackb, table, chunk);
 		algo_position200(stacka, stackb, size);
 	}
+
 }

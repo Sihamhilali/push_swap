@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 14:53:06 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/17 17:16:36 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/17 17:48:51 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void		case_four(t_linked **stacka, t_linked	**stackb);
 void		case_five(t_linked **stacka, t_linked	**stackb);
 void		case_algo(t_linked **stacka, t_linked **stackb, int table);
 void		algo_position200(t_linked **stacka, t_linked **stackb, int size);
-void		for_algo200(t_linked **stacka, t_linked **stackb, int table, int chunk);
+void		for_algo(t_linked **stacka, t_linked **stackb, int table, int chunk);
 int			to_index(t_linked *stackb, int position);
 void		find_retation(t_linked **stacka, t_linked **stackb, int size, int index);
 
