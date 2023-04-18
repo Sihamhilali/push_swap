@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 22:01:37 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/17 23:17:05 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/18 00:02:54 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,17 @@ void	swap_b(t_linked *stackb)
 	int	tmp;
 	int	pos;
 
-	if (!stackb)
-		exit(0);
-	tmp = stackb->content;
-	pos = stackb->position;
-	stackb->content = stackb->next->content;
-	stackb->position = stackb->next->position;
-	stackb->next->content = tmp;
-	stackb->next->position = pos;
-	addindex(&stackb);
-	write(1, "sb\n", 3);
+	if (stackb)
+	{
+		tmp = stackb->content;
+		pos = stackb->position;
+		stackb->content = stackb->next->content;
+		stackb->position = stackb->next->position;
+		stackb->next->content = tmp;
+		stackb->next->position = pos;
+		addindex(&stackb);
+		write(1, "sb\n", 3);
+	}
 }
 
 void	retate_b(t_linked **stackb)
@@ -36,23 +37,24 @@ void	retate_b(t_linked **stackb)
 	t_linked	*tmplist_b;
 
 	tmplist_b = *stackb;
-	if (!stackb)
-		exit(1);
-	tmp = tmplist_b->content;
-	pos = tmplist_b->position;
-	while (tmp)
+	if (stackb)
 	{
-		if (tmplist_b->next == NULL)
+		tmp = tmplist_b->content;
+		pos = tmplist_b->position;
+		while (tmp)
 		{
+			if (tmplist_b->next == NULL)
+			{
 			tmplist_b->content = tmp;
 			tmplist_b->position = pos;
-			break ;
+				break ;
+			}
+			tmplist_b->content = tmplist_b->next->content;
+			tmplist_b->position = tmplist_b->next->position;
+			tmplist_b = tmplist_b->next;
 		}
-		tmplist_b->content = tmplist_b->next->content;
-		tmplist_b->position = tmplist_b->next->position;
-		tmplist_b = tmplist_b->next;
+		write(1, "rb\n", 3);
 	}
-	write(1, "rb\n", 3);
 }
 
 void	push_toa(t_linked **stackb, t_linked **stacka)
@@ -61,18 +63,17 @@ void	push_toa(t_linked **stackb, t_linked **stacka)
 	t_linked	*stacktmp;
 
 	i = 0;
-	if (!stackb)
+	if (stackb)
 	{
-		free(stacka);
-		exit(1);
+		ft_lstadd_front(stacka, ft_lstnew((*stackb)->content,
+				(*stackb)->position));
+		stacktmp = *stackb;
+		*stackb = (*stackb)->next;
+		free(stacktmp);
+		addindex(stackb);
+		addindex(stacka);
+		write(1, "pa\n", 3);
 	}
-	ft_lstadd_front(stacka, ft_lstnew((*stackb)->content, (*stackb)->position));
-	stacktmp = *stackb;
-	*stackb = (*stackb)->next;
-	free(stacktmp);
-	addindex(stackb);
-	addindex(stacka);
-	write(1, "pa\n", 3);
 }
 
 void	r_retate_b(t_linked **stackb)
@@ -81,18 +82,21 @@ void	r_retate_b(t_linked **stackb)
 	t_linked	*tmp;
 
 	tmp = *stackb;
-	stacktmp = ft_lstlast(*stackb);
-	while (tmp)
+	if (*stackb)
 	{
-		if (tmp->next->next == NULL)
+		stacktmp = ft_lstlast(*stackb);
+		while (tmp)
 		{
-			tmp->next = NULL;
-			break ;
+			if (tmp->next->next == NULL)
+			{
+				tmp->next = NULL;
+				break ;
+			}
+			tmp = tmp->next;
 		}
-		tmp = tmp->next;
+		stacktmp->next = *stackb;
+		*stackb = stacktmp;
+		addindex(stackb);
+		write(1, "rrb\n", 4);
 	}
-	stacktmp->next = *stackb;
-	*stackb = stacktmp;
-	addindex(stackb);
-	write(1, "rrb\n", 4);
 }

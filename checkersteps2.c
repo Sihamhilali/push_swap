@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 21:21:59 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/17 22:01:46 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/17 23:50:01 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,16 @@ void	swap_b_check(t_linked *stackb)
 	int	tmp;
 	int	pos;
 
-	if (!stackb)
-		exit(0);
-	tmp = stackb->content;
-	pos = stackb->position;
-	stackb->content = stackb->next->content;
-	stackb->position = stackb->next->position;
-	stackb->next->content = tmp;
-	stackb->next->position = pos;
-	addindex(&stackb);
+	if (stackb)
+	{
+		tmp = stackb->content;
+		pos = stackb->position;
+		stackb->content = stackb->next->content;
+		stackb->position = stackb->next->position;
+		stackb->next->content = tmp;
+		stackb->next->position = pos;
+		addindex(&stackb);
+	}
 }
 
 void	retate_b_check(t_linked **stackb)
@@ -35,21 +36,22 @@ void	retate_b_check(t_linked **stackb)
 	t_linked	*tmplist_a;
 
 	tmplist_a = *stackb;
-	if (!stackb)
-		exit(1);
-	tmp = tmplist_a->content;
-	pos = tmplist_a->position;
-	while (tmp)
+	if (*stackb)
 	{
-		if (tmplist_a->next == NULL)
+		tmp = tmplist_a->content;
+		pos = tmplist_a->position;
+		while (tmp)
 		{
-			tmplist_a->content = tmp;
-			tmplist_a->position = pos;
-			break ;
+			if (tmplist_a->next == NULL)
+			{
+				tmplist_a->content = tmp;
+				tmplist_a->position = pos;
+				break ;
+			}
+			tmplist_a->content = tmplist_a->next->content;
+			tmplist_a->position = tmplist_a->next->position;
+			tmplist_a = tmplist_a->next;
 		}
-		tmplist_a->content = tmplist_a->next->content;
-		tmplist_a->position = tmplist_a->next->position;
-		tmplist_a = tmplist_a->next;
 	}
 }
 
@@ -59,17 +61,16 @@ void	push_toa_check(t_linked **stackb, t_linked **stacka)
 	t_linked	*stacktmp;
 
 	i = 0;
-	if (!stackb)
+	if (*stackb)
 	{
-		free(stacka);
-		exit(1);
+		ft_lstadd_front(stacka, ft_lstnew((*stackb)->content,
+				(*stackb)->position));
+		stacktmp = *stackb;
+		*stackb = (*stackb)->next;
+		free(stacktmp);
+		addindex(stacka);
+		addindex(stackb);
 	}
-	ft_lstadd_front(stacka, ft_lstnew((*stackb)->content, (*stackb)->position));
-	stacktmp = *stackb;
-	*stackb = (*stackb)->next;
-	free(stacktmp);
-	addindex(stacka);
-	addindex(stackb);
 }
 
 void	r_retate_b_check(t_linked **stackb)
@@ -78,21 +79,22 @@ void	r_retate_b_check(t_linked **stackb)
 	t_linked	*tmp;
 
 	tmp = *stackb;
-	if (!(*stackb))
-		return ;
-	stacktmp = ft_lstlast(*stackb);
-	while (tmp)
+	if (*stackb)
 	{
-		if (tmp->next->next == NULL)
+		stacktmp = ft_lstlast(*stackb);
+		while (tmp)
 		{
-			tmp->next = NULL;
-			break ;
+			if (tmp->next->next == NULL)
+			{
+				tmp->next = NULL;
+				break ;
+			}
+			tmp = tmp->next;
 		}
-		tmp = tmp->next;
+		stacktmp->next = *stackb;
+		*stackb = stacktmp;
+		addindex(stackb);
 	}
-	stacktmp->next = *stackb;
-	*stackb = stacktmp;
-	addindex(stackb);
 }
 
 void	rr_ab_check(t_linked **stacka, t_linked **stackb)

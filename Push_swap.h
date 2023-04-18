@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 14:53:06 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/17 22:59:34 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/17 23:28:52 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,7 @@ void		r_retate_b_check(t_linked **stackb);
 void		rr_ab_check(t_linked **stacka, t_linked **stackb);
 void		r_retate_ab_check(t_linked *stacka, t_linked *stackb);
 void		swab_ba_check(t_linked *stacka, t_linked *stackb);
+int			ft_strncmp(const char *str1, const char *str2, size_t n);
+int			sorted1(t_linked **stacka);
 
 #endif

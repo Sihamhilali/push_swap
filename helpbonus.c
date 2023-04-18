@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 22:58:49 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/17 22:59:21 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/17 23:30:39 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,20 @@ int	ft_strncmp(const char *str1, const char *str2, size_t n)
 	return (s1[i] - s2[i]);
 }
 
-int	sorted1(t_linked *stacka)
+int	sorted1(t_linked **stacka)
 {
 	t_linked	*test;
 	int			count;
 
 	count = 1;
-	test = stacka;
+	test = *stacka;
 	while (test->next)
 	{
 		if (test->content < test->next->content)
 			count++;
 		test = test->next;
 	}
-	if (count == ft_lstsize(stacka))
+	if (count == ft_lstsize(*stacka))
 	{
 		return (1);
 	}
