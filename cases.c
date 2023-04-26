@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 20:03:25 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/17 23:15:48 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/26 19:07:34 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,13 @@ void	for_algo(t_linked **stacka, t_linked **stackb, int table, int chunk)
 	count = 0;
 	while (*stacka)
 	{
-		if ((*stacka)->position >= chunk)
+		if ((*stacka)->position > chunk)
 			retate_a(stacka);
 		else
 		{
 			push_tob(stacka, stackb);
 				count++;
-			if ((*stackb)->position > chunk - (table / 2))
+			if ((*stackb)->position >= chunk - (table / 2))
 			{
 				if (*stacka && count != chunk && (*stacka)->position >= chunk)
 					rr_ab(stacka, stackb);

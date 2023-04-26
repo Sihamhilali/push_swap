@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 21:05:08 by selhilal          #+#    #+#             */
-/*   Updated: 2023/04/17 23:34:19 by selhilal         ###   ########.fr       */
+/*   Updated: 2023/04/26 19:08:16 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ int	main(int argc, char **argv)
 		}
 		k = ft_split(h, ' ');
 		free(h);
+		check(k);
 		stacka = add(k);
 		get(&stacka, &stackb);
 	}
